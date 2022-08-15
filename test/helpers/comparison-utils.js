@@ -19,9 +19,8 @@
 // THE SOFTWARE.
 
 import {FILTER_TYPES} from '@kepler.gl/constants';
-import {toArray} from '../../src/utils/utils';
 import {getFieldValueAccessor} from '../../src/utils';
-import KeplerTable from '../../src/utils/table-utils/kepler-table';
+import {toArray, KeplerTable} from '../utils';
 
 export function cmpObjectKeys(t, expectedObj, actualObj, name) {
   t.deepEqual(
