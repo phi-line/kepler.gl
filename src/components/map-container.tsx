@@ -45,7 +45,7 @@ import {
   LayerBaseConfig,
   VisualChannelDomain
 } from '@kepler.gl/layers';
-import {MapState} from '@kepler.gl/types';
+import {Filter, InteractionConfig, MapState, SplitMapLayers} from '@kepler.gl/types';
 import {
   errorNotification,
   setLayerBlending,
@@ -56,7 +56,8 @@ import {
   prepareLayersForDeck,
   LayerHoverProp,
   observeDimensions,
-  unobserveDimensions
+  unobserveDimensions,
+  Datasets
 } from '../utils';
 
 // default-settings
@@ -66,14 +67,10 @@ import {FILTER_TYPES, GEOCODER_LAYER_ID, THROTTLE_NOTIFICATION_TIME} from '@kepl
 import ErrorBoundary from 'components/common/error-boundary';
 import {LOCALE_CODES} from '@kepler.gl/localization';
 import {
-  Datasets,
-  Filter,
-  InteractionConfig,
   MapControls,
   MapStyle,
   Viewport
 } from 'reducers';
-import {SplitMapLayers} from 'reducers/vis-state-updaters';
 
 /** @type {{[key: string]: React.CSSProperties}} */
 const MAP_STYLE: {[key: string]: React.CSSProperties} = {
