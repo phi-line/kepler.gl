@@ -24,77 +24,20 @@ import {Datasets} from 'reducers/table-utils';
 import datasetSchema from './dataset-schema';
 import mapStyleSchema from './map-style-schema';
 import mapStateSchema from './map-state-schema';
-import {SavedDatasetV1, ParsedDataset} from './dataset-schema';
-import {visStateSchema, ParsedVisState, SavedVisState} from './vis-state-schema';
+import {visStateSchema} from './vis-state-schema';
 
 import {CURRENT_VERSION, VERSIONS} from './versions';
 import {isPlainObject} from '@kepler.gl/utils';
 
-import {MapInfo, RGBColor} from '@kepler.gl/types';
-
-export type SavedMapState = {
-  bearing: number;
-  dragRotate: boolean;
-  latitude: number;
-  longitude: number;
-  pitch: number;
-  zoom: number;
-  isSplit: boolean;
-};
-
-export type SavedLayerGroups = {
-  [key: string]: boolean;
-};
-
-export type SavedCustomMapStyle = {
-  [key: string]: {
-    accessToken: string;
-    custom: boolean;
-    icon: string;
-    id: string;
-    label: string;
-    url: string;
-  };
-};
-
-export type SavedMapStyle = {
-  styleType: string;
-  topLayerGroups: SavedLayerGroups;
-  visibleLayerGroups: SavedLayerGroups;
-  threeDBuildingColor: RGBColor;
-  mapStyles: SavedCustomMapStyle;
-};
-
-/** Schema for v1 saved configuration */
-export type SavedConfigV1 = {
-  version: 'v1';
-  config: {
-    visState: SavedVisState;
-    mapState: SavedMapState;
-    mapStyle: SavedMapStyle;
-  };
-};
-
-/** Schema for a parsed configuration ("normalized" across versions) */
-export type ParsedConfig = {
-  version: string;
-  visState?: ParsedVisState;
-  mapState?: Partial<SavedMapState>;
-  mapStyle?: Partial<SavedMapStyle>;
-};
-
-export type SavedMap = {
-  datasets: SavedDatasetV1[];
-  config: SavedConfigV1;
-  info: {
-    app: string;
-    created_at: string;
-    title: string;
-    description: string;
-  };
-};
-
-export type LoadedMap = {datasets?: ParsedDataset[] | null; config?: ParsedConfig | null};
+import {
+  LoadedMap,
+  MapInfo,
+  ParsedConfig,
+  ParsedDataset,
+  SavedConfigV1,
+  SavedDatasetV1,
+  SavedMap
+} from '@kepler.gl/types';
 
 export const reducerSchema: {
   [key: string]: typeof mapStateSchema | typeof visStateSchema | typeof mapStyleSchema;

@@ -26,17 +26,7 @@ export {
   KeplerGLSchema as KeplerGLSchemaClass
 } from './schema-manager';
 
-// eslint-disable-next-line prettier/prettier
-export type {
-  ParsedConfig,
-  SavedConfigV1,
-  SavedMap
-} from './schema-manager';
 export {CURRENT_VERSION, VERSIONS} from './versions';
-export type {
-  ParsedLayer,
-  ParsedFilter
-} from './vis-state-schema';
 export {
   visStateSchemaV1,
   FilterSchemaV0,
@@ -47,6 +37,7 @@ export {
   filterPropsV1,
   default as visStateSchema
 } from './vis-state-schema';
+/* eslint-disable prettier/prettier */
 export type {
   SavedField,
   ParsedField,

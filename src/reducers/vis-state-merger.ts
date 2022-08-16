@@ -27,9 +27,7 @@ import {LayerColumns, LayerColumn, Layer} from '@kepler.gl/layers';
 import {LAYER_BLENDINGS} from '@kepler.gl/constants';
 import {CURRENT_VERSION, Merger, VisState, VisStateMergers, visStateSchema} from 'schemas';
 
-import {ParsedConfig, ParsedLayer} from 'schemas';
-import {SavedInteractionConfig} from 'schemas';
-import {TooltipInfo} from '@kepler.gl/types';
+import {TooltipInfo, ParsedConfig, ParsedLayer, SavedInteractionConfig} from '@kepler.gl/types';
 import KeplerTable, {Datasets} from './table-utils/kepler-table';
 import {applyFiltersToDatasets, validateFiltersUpdateDatasets} from './filter-utils';
 import {assignGpuChannels, resetFilterGpuMode} from './table-utils/gpu-filter-utils';

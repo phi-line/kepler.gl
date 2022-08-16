@@ -36,7 +36,7 @@ import {MapStyle} from './map-style-updaters';
 import {ProviderState} from './provider-state-updaters';
 import {AddDataToMapPayload} from 'actions/actions';
 import {loadFilesSuccessUpdaterAction} from 'actions/vis-state-actions';
-import {ParsedConfig, VisState} from 'schemas';
+import {VisState} from 'schemas';
 import {Layer} from '@kepler.gl/layers';
 import {isPlainObject} from '@kepler.gl/utils';
 import {findMapBounds} from './data-utils';

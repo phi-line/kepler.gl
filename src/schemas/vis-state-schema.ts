@@ -33,6 +33,15 @@ import {
   InteractionConfig,
   LayerTextLabel,
   MapInfo,
+  ParsedFilter,
+  ParsedLayer,
+  ParsedVisState,
+  SavedAnimationConfig,
+  SavedFilter,
+  SavedInteractionConfig,
+  SavedLayer,
+  SavedVisState,
+  SavedVisualChannels,
   SplitMap,
   TooltipInfo
 } from '@kepler.gl/types';
@@ -42,99 +51,6 @@ import {RGBColor, Merge} from 'types';
 import {Layer, LayerClassesType} from '@kepler.gl/layers';
 import {Loader} from '@loaders.gl/loader-utils';
 import KeplerGLSchema from './schema-manager';
-
-export type SavedFilter = {
-  dataId: Filter['dataId'];
-  id: Filter['id'];
-  name: Filter['name'];
-  type: Filter['type'];
-  value: Filter['value'];
-  enlarged: Filter['enlarged'];
-  plotType: Filter['plotType'];
-  yAxis: {
-    name: string;
-    type: string;
-  } | null;
-  speed: Filter['speed'];
-  layerId: Filter['layerId'];
-};
-
-export type ParsedFilter = Partial<SavedFilter>;
-
-export type SavedInteractionConfig = {
-  tooltip: TooltipInfo['config'] & {
-    enabled: boolean;
-  };
-  // @ts-expect-error
-  geocoder: TooltipInfo['geocoder'] & {
-    enabled: boolean;
-  };
-  // @ts-expect-error
-  brush: TooltipInfo['brush'] & {
-    enabled: boolean;
-  };
-  // @ts-expect-error
-  coordinate: TooltipInfo['coordinate'] & {
-    enabled: boolean;
-  };
-};
-
-export type SavedField = {
-  name: string;
-  type: string;
-} | null;
-export type SavedScale = string;
-export type SavedVisualChannels = {
-  [key: string]: SavedField | SavedScale;
-};
-
-export type SavedLayer = {
-  id: string;
-  type: string;
-  config: {
-    dataId: string;
-    label: string;
-    color: RGBColor;
-    columns: {
-      [key: string]: string;
-    };
-    isVisible: boolean;
-    visConfig: object;
-    hidden: boolean;
-    textLabel: Merge<LayerTextLabel, {field: {name: string; type: string} | null}>;
-    highlightColor?: RGBColor;
-  };
-  visualChannels: SavedVisualChannels;
-};
-
-export type ParsedLayer = {
-  id?: string;
-  type?: string;
-  config?: Partial<SavedLayer['config']>;
-};
-
-export type SavedAnimationConfig = {
-  currentTime: AnimationConfig['currentTime'];
-  speed: AnimationConfig['speed'];
-};
-
-export type SavedVisState = {
-  filters: SavedFilter[];
-  layers: SavedLayer[];
-  interactionConfig: SavedInteractionConfig;
-  layerBlending: string;
-  splitMaps: SplitMap[];
-  animationConfig: SavedAnimationConfig;
-};
-
-export type ParsedVisState = {
-  layers?: ParsedLayer[];
-  filters?: ParsedFilter[];
-  interactionConfig?: Partial<SavedInteractionConfig>;
-  layerBlending?: string;
-  splitMaps?: SplitMap[];
-  animationConfig?: Partial<SavedAnimationConfig>;
-};
 
 /**
  * V0 Schema
