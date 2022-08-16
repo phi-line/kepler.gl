@@ -185,7 +185,7 @@ export {default as Portaled} from './common/portaled';
 export {default as ProgressBar} from './common/progress-bar';
 export {default as FileUploadProgress} from './common/file-uploader/file-upload-progress';
 export {default as Slider} from './common/slider/slider';
-export {DatasetSquare} from './common/styled-components';
+export {DatasetSquare, BottomWidgetInner} from './common/styled-components';
 export {default as ActionPanel, ActionPanelItem} from './common/action-panel';
 export {default as DataTableFactory} from './common/data-table';
 export {default as CanvasHack} from './common/data-table/canvas';

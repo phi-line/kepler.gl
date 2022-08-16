@@ -40,6 +40,8 @@ export {
   getNumericStepSize,
   formatNumberByStep
 } from 'utils/filter-utils';
+
+export {hasMobileWidth} from 'utils/utils';
 export {resetFilterGpuMode, assignGpuChannels} from 'utils/gpu-filter-utils';
 
 // REDUCER UTILS

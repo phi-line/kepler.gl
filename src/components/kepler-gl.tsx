@@ -62,7 +62,7 @@ import PlotContainerFactory from './plot-container';
 import NotificationPanelFactory from './notification-panel';
 import GeoCoderPanelFactory from './geocoder-panel';
 
-import {filterObjectByPredicate, generateHashId} from 'utils/utils';
+import {filterObjectByPredicate, generateHashId, hasPortableWidth} from 'utils/utils';
 import {validateToken} from 'utils/mapbox-utils';
 import {mergeMessages} from 'utils/locale-utils';
 
@@ -352,7 +352,7 @@ function KeplerGlFactory(
     static contextType = RootContext;
 
     root = createRef<HTMLDivElement>();
-    bottomWidgetRef = createRef();
+    bottomWidgetRef = createRef<HTMLDivElement>();
 
     /* selectors */
     themeSelector = props => props.theme;
@@ -483,7 +483,7 @@ function KeplerGlFactory(
                 <MapsLayout className="maps">{mapContainers}</MapsLayout>
                 {isExportingImage && <PlotContainer {...plotContainerFields} />}
                 {interactionConfig.geocoder.enabled && <GeoCoderPanel {...geoCoderPanelFields} />}
-                <BottomWidgetOuter absolute>
+                <BottomWidgetOuter absolute={!hasPortableWidth()}>
                   <BottomWidget
                     ref={this.bottomWidgetRef}
                     {...bottomWidgetFields}
