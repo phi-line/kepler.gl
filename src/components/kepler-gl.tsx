@@ -485,7 +485,7 @@ function KeplerGlFactory(
                 {interactionConfig.geocoder.enabled && <GeoCoderPanel {...geoCoderPanelFields} />}
                 <BottomWidgetOuter absolute={!hasPortableWidth()}>
                   <BottomWidget
-                    ref={this.bottomWidgetRef}
+                    rootRef={this.bottomWidgetRef}
                     {...bottomWidgetFields}
                     containerW={dimensions.width}
                   />
